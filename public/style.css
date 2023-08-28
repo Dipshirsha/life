@@ -1,0 +1,517 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+@media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    margin-top: 0;
+  }
+
+  .navbar .nav-item:hover .nav-link {
+    color: #fff;
+  }
+
+  .navbar .dropdown-menu.fade-down {
+    top: 80%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+  }
+
+  .navbar .dropdown-menu.fade-up {
+    top: 180%;
+  }
+
+  .navbar .nav-item:hover .dropdown-menu {
+    transition: .3s;
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    transform: rotateX(0deg);
+  }
+
+}
+
+.navbar {
+  background: #00000072
+}
+
+.nav-item::after {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 2px;
+  background: #fec400;
+  transition: 0.4s
+}
+
+.nav-item:hover::after {
+  width: 100%
+}
+
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fec400
+}
+
+.nav-link {
+
+  transition: 0.2s
+}
+
+.carousel-item {
+
+  width: 100%;
+}
+
+
+.navbar {
+  background-color: hsla(0, 0%, 0%, 0.352);
+
+}
+
+.quiz {
+  color: aliceblue;
+  border: 1px solid rgb(29, 29, 55);
+  background-color: rgb(26, 26, 56);
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+
+}
+
+
+
+
+
+.image {
+  width: 100%;
+  height: 90vh;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backdrop-filter: blur(3px);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.carousel-item:hover .overlay {
+  height: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border: 1vmax solid rgb(12, 12, 51);
+  background-color: rgb(10, 10, 37);
+  border-radius: 100px;
+
+}
+
+#carouselExampleDark {
+  background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8324.png");
+
+}
+
+@media screen and (max-width: 650px) {
+  .image {
+    width: 100%;
+    height: 50vh;
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+
+  .about-us {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  .container .col-6 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  .about {
+    text-align: center;
+  }
+
+  .image-container {
+    width: auto !important;
+    max-width: none !important;
+
+  }
+
+  .image-container img {
+    width: 100%
+  }
+
+  .gallery {
+    flex-direction: column;
+  }
+
+  .events {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .event-container {
+    width: 100%;
+  }
+
+  .news {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+  }
+
+  .news-container {
+    width: 80%;
+  }
+
+}
+
+.about {
+
+  margin: 2.5em;
+
+}
+
+.about-us {
+  background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size: cover;
+  -webkit-animation: slidein 50s;
+  animation: slidein 59s;
+
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+}
+
+@keyframes slidein {
+  from {
+    background-position: top;
+    background-size: 3000px;
+  }
+
+  to {
+    background-position: -100px 0px;
+    background-size: 2750px;
+  }
+
+}
+
+
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(75, 75, 250, 0.3);
+  border-radius: 3px;
+}
+
+.center h1 {
+  text-align: center;
+  color: white;
+  font-family: 'Source Code Pro', monospace;
+  text-transform: uppercase;
+}
+
+.container .col-6 {
+  backdrop-filter: blur(40px);
+  border-radius: 100px;
+  margin-bottom: 10px;
+  color: #0c0707;
+  background-color: rgba(0, 0, 0, 0.103);
+}
+
+.container-highlight {
+  display: flex;
+
+  height: 100%;
+  align-items: center;
+  background-color: #000000;
+}
+
+svg {
+  display: block;
+  font: 10.5em 'Montserrat';
+  width: 960px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 6% 29%;
+  stroke-width: 5px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1) {
+  stroke: #4D163D;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2) {
+  stroke: #840037;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3) {
+  stroke: #BD0034;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4) {
+  stroke: #BD0034;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5) {
+  stroke: #FDB731;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset {
+  100% {
+    stroke-dashoffset: -35%;
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8324.png");
+
+
+}
+
+.image-container {
+
+  width: calc(50% - 20px);
+  max-width: 400px;
+  height: 45vh;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+}
+
+.image-container img {
+  width: 100%;
+  height: 45vh;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.image-front,
+.image-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.image-front {
+  transform: rotateY(0deg);
+}
+
+.image-back {
+  transform: rotateY(180deg);
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.image-container:hover .image-front {
+  transform: rotateY(180deg);
+}
+
+.image-container:hover .image-back {
+  transform: rotateY(0deg);
+}
+
+.image-container:hover img {
+  transform: rotateY(180deg);
+}
+
+.event-container {
+  position: relative;
+
+
+}
+
+.event-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00000093;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+}
+
+.event-container:hover .event-overlay {
+  width: 100%;
+}
+
+.event-text {
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
+}
+
+.event-img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+}
+
+.events {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://img.freepik.com/free-vector/bokeh-lights-effect-dark-background_52683-33179.jpg?w=1060&t=st=1692638957~exp=1692639557~hmac=c4507abc3631dce769b8b827c837b6471c5523e0a772996ac0fc700e5be27678");
+  padding-top: 3vh;
+}
+
+.animate-charcter {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg,
+      #231557 0%,
+      #44107a 29%,
+      #ff1361 67%,
+      #fff800 100%);
+  background-size: auto auto;
+  background-clip: border-news;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  /*   text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 40px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+
+  }
+}
+
+.news {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  background-image: linear-gradient(to right, rgb(92, 18, 18), rgb(6, 15, 37), rgb(6, 15, 37), rgb(89, 7, 7));
+  padding-bottom: 10vh;
+}
+
+.news-container {
+  position: relative;
+  border: 5px solid #000000;
+  color: rgb(5, 3, 3);
+  box-shadow: black;
+  text-shadow: wheat;
+  transition: transform .9s;
+ 
+}
+.news-container:hover{
+  transform: scale(1.3); 
+  z-index: 3;
+}
+
+.news-context {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  color: whitesmoke;
+
+}
+
+.news-img {
+  width: 100%;
+  height: 300px;
+}
+
+
+
+
+html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
+.mySlides {display:none}
+.w3-tag, .fa {cursor:pointer}
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+
+
+
+

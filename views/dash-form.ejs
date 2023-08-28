@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: aliceblue;
+        }
+        .form-container {
+            background-color: rgb(1, 2, 2);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            margin-top: 2vh;
+        }
+        .form-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        .form-input:focus {
+            border-color: #3498DB;
+        }
+        .form-submit {
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-submit:hover {
+            background-color: #2674B7;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Task Form</h1>
+        <form action="/dash-form" method="post">
+   
+
+            <label class="form-label" for="about">email:</label>
+            <input class="form-input" type="email" id="about" name="email" required>
+
+            <label class="form-label" for="about">About:</label>
+            <input class="form-input" type="text" id="about" name="about" required>
+
+
+
+            <label class="form-label" for="taskAssigned1">Task Assigned:</label>
+            <input class="form-input" type="text" id="taskAssigned1" name="taskAssigned1" required>
+
+            <label class="form-label" for="taskAssigned2">Task Assigned:</label>
+            <input class="form-input" type="text" id="taskAssigned2" name="taskAssigned2" required>
+
+            <label class="form-label" for="taskAssigned3">Task Assigned:</label>
+            <input class="form-input" type="text" id="taskAssigned3" name="taskAssigned3" required>
+
+            <label class="form-label" for="deadline">Deadline(enter like text):</label>
+            <input class="form-input" type="text" id="deadline" name="deadline" required>
+
+            <label class="form-label" for="envolve1">Involvement:</label>
+            <input class="form-input" type="text" id="envolve1" name="involve1" required>
+
+            <label class="form-label" for="envolve2">Involvement:</label>
+            <input class="form-input" type="text" id="envolve2" name="involve2" required>
+
+            <button class="form-submit" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

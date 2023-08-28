@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to left,rgb(156, 10, 10),rgb(16, 210, 210),rgb(156, 10, 10));
+        }
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-image: linear-gradient(to right,rgb(156, 10, 10),rgb(16, 210, 210),rgb(156, 10, 10));
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-section {
+            flex: 1;
+            min-width: calc(50% - 20px);
+            margin: 10px;
+            padding: 20px;
+            background-color: #0d0e0e;
+            border-radius: 10px;
+            color: white;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dashboard-title {
+            margin-top: 0;
+        }
+        .roadmap {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(174, 84, 5);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .task {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 5px solid #3498DB;
+            border-radius: 5px;
+            background-color: #00000031;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            animation: fadeInUp 0.5s ease;
+        }
+        .task:hover {
+            background-color: #611414a1;
+        }
+        .task .status {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+        .task .status.pending {
+            background-color: yellow;
+        }
+        .task .status.complete {
+            background-color: green;
+        }
+        .task-info {
+            flex: 1;
+        }
+        .task-title {
+            font-weight: bold;
+            margin: 0;
+        }
+        .task-description {
+            margin: 0;
+        }
+        .user-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        @media (max-width: 768px) {
+          
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="dashboard-section" style="text-align: center;">
+
+            <h2 class="dashboard-title"><%= locals.name%></h2>
+            <p style="float: right;"><%= locals.Admin%></p>
+                 </div>
+        <div class="dashboard-section">
+            <h2 class="dashboard-title">About</h2>
+            <p> <%= locals.about %></p>
+        </div>
+        <div class="dashboard-section">
+            <h2 class="dashboard-title">Task Assigned</h2>
+            <div class="task">
+                <img class="user-image" src="user1.jpg" alt="User 1">
+                <div class="task-info">
+                    <p class="task-title"><%= locals.taskAssigned1 %></p>
+                    <p class="task-description">Complete feature A</p>
+                </div>
+                <div class="status pending"></div>
+            </div>
+            <div class="task">
+                <img class="user-image" src="user2.jpg" alt="User 2">
+                <div class="task-info">
+                    <p class="task-title"><%= locals.taskAssigned2 %></p>
+                    <p class="task-description">Review code for feature B</p>
+                </div>
+                <div class="status complete"></div>
+            </div>
+            <div class="task">
+                <img class="user-image" src="user2.jpg" alt="User 2">
+                <div class="task-info">
+                    <p class="task-title"><%= locals.taskAssigned3 %></p>
+                    <p class="task-description">Review code for feature B</p>
+                </div>
+                <div class="status complete"></div>
+            </div>
+        </div>
+        <div class="dashboard-section">
+            <h2 class="dashboard-title">Involvement</h2>
+            <div class="task">
+                <img class="user-image" src="user3.jpg" alt="User 3">
+                <div class="task-info">
+                    <p class="task-title"><%= locals.involve1 %></p>
+                    <p class="task-description">Test application on different devices</p>
+                </div>
+                <div class="status pending"></div>
+            </div>
+            <div class="task">
+                <img class="user-image" src="user4.jpg" alt="User 4">
+                <div class="task-info">
+                    <p class="task-title"> <%= locals.involve2 %></p>
+                    <p class="task-description">Prepare presentation for stakeholders</p>
+                </div>
+                <div class="status"></div>
+            </div>
+        </div>
+
+    
+    <div class="roadmap">
+        <h2 class="dashboard-title">Task Roadmap</h2>
+        <div class="task">
+            <div class="status pending"></div>
+            <p class="task-title">Task 1</p>
+            <p class="task-description">Complete feature A</p>
+        </div>
+        <div class="task">
+            <div class="status complete"></div>
+            <p class="task-title">Task 2</p>
+            <p class="task-description">Review code for feature B</p>
+        </div>
+        <div class="task">
+            <div class="status pending"></div>
+            <p class="task-title">Task 3</p>
+            <p class="task-description">Test application on different devices</p>
+        </div>
+        <div class="task">
+            <div class="status"></div>
+            <p class="task-title">Task 4</p>
+            <p class="task-description">Prepare presentation for stakeholders</p>
+        </div>
+    </div>
+    </div>
+    <a href="/dash/form/page" style="color: rgb(0, 0, 0);font-size: large;margin: 47%; ">form page</a>
+</body>
+</html>
