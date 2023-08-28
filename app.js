@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import Jwt from 'jsonwebtoken';
 import bcrypt, { compare } from 'bcrypt';
 
-
+const port=5000;
 const currentpath = path.resolve();
 console.log(currentpath);
 const app = express();
@@ -214,7 +214,7 @@ app.get("/login", (req, res) => {
 })
 
 
-app.listen(5000, () => {
+app.listen(process.env.PORT || port,() => {
     console.log("server is working");
 })
 app.get("/dashboard", async (req, res) => {
