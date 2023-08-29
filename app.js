@@ -82,7 +82,7 @@ const isathencative = async (req, res, next) => {
     }
 }
 
-app.get("/register", (req, res) => {
+app.get("/Register/page", (req, res) => {
     res.render("register-now.ejs");
 })
 app.get("/", isathencative, (req, res) => {
@@ -151,7 +151,7 @@ app.post("/login", async (req, res) => {
     let user = await User.findOne({ email });   /* finding data through email and store all imformation to user */
     data = await User.findOne({ email });
     if (!user) {
-        return res.redirect("/register");
+        return res.redirect("/Register/page");
     }
     if(MEMBER){
              const ismember = user.MEMBER === MEMBER;  
@@ -209,17 +209,19 @@ app.get("/logout", (req, res) => {
     });
     res.redirect("/");
 })
-app.get("/login", (req, res) => {
+app.get("/login/page", (req, res) => {
     res.render("login.ejs");
 })
 
 
-app.listen(process.env.PORT || port,() => {
+app.listen(process.env.PORT || port, () => {
     console.log("server is working");
 })
 app.get("/dashboard", async (req, res) => {
     res.render("dashboard.ejs");
-    const memberpass = bcrypt.hash()
+  
 
 })
+
+
 
