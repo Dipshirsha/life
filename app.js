@@ -95,17 +95,13 @@ app.get("/logout/page", (req, res) => {
     res.render("logout.ejs");
 })
 app.get("/dash/page", async (req, res) => {
-if(data.pass){
+
     res.render("dashboard.ejs", {
         name: data.name, about: data.about, taskAssigned1: data.taskAssigned1, taskAssigned2: data.taskAssigned2, taskAssigned3: data.taskAssigned3,
         deadline:data.deadline,involve1:data.involve1,involve2:data.involve2,Admin:"Admin"});
-}
-else{
+
    
-    res.render("dashboard.ejs", {
-        name: data.name, about: data.about, taskAssigned1: data.taskAssigned1, taskAssigned2: data.taskAssigned2, taskAssigned3: data.taskAssigned3,
-        deadline:data.deadline,involve1:data.involve1,involve2:data.involve2,}); 
-}
+
     
 })
 app.get("/dash/form/page", async (req, res) => {
