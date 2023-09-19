@@ -63,15 +63,16 @@
 <body>
     <div class="form-container">
         <h1 class="form-title">Task Form</h1>
-        <form action="/dash-form" method="post">
+        <form action="/dash-form" method="post" enctype="multipart/form-data">
    
 
-            <label class="form-label" for="about">email:</label>
-            <input class="form-input" type="email" id="about" name="email" required>
+          
 
             <label class="form-label" for="about">About:</label>
-            <input class="form-input" type="text" id="about" name="about" required>
-
+            <input class="form-input" type="text" id="about" name="about" >
+            
+            <label for="photos">Upload Photo :</label>
+            <input type="file" name="photo" id="about" accept="image/*"  required>
 
 
             <label class="form-label" for="taskAssigned1">Task Assigned:</label>
@@ -81,7 +82,7 @@
             <input class="form-input" type="text" id="taskAssigned2" name="taskAssigned2" required>
 
             <label class="form-label" for="taskAssigned3">Task Assigned:</label>
-            <input class="form-input" type="text" id="taskAssigned3" name="taskAssigned3" required>
+            <input class="form-input" type="text" id="taskAssigned3" name="taskAssigned3"required >
 
             <label class="form-label" for="deadline">Deadline(enter like text):</label>
             <input class="form-input" type="text" id="deadline" name="deadline" required>
@@ -91,6 +92,12 @@
 
             <label class="form-label" for="envolve2">Involvement:</label>
             <input class="form-input" type="text" id="envolve2" name="involve2" required>
+
+            <label class="form-label" for="instagarm">instagarm id link</label>
+            <input class="form-input" type="text" id="taskAssigned1" name="instagram"required >
+
+            <label class="form-label" for="facebook">facebook id link</label>
+            <input class="form-input" type="text" id="taskAssigned1" name="facebook" required>
 
             <button class="form-submit" type="submit">Submit</button>
         </form>
