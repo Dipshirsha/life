@@ -316,6 +316,9 @@ let pass;
         }
 
     }
+    else{
+        pass=false;
+    }
 
     const ismatched = await bcrypt.compare(password, user.password);
 
