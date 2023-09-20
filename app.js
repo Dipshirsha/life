@@ -11,9 +11,9 @@ import emailvalidator from 'deep-email-validator';
 import  nodemailer from  'nodemailer';
 
 
-let  changepasswordkey;
-let  changepasswordemail;
-const port = 5000;
+
+const port = 5000
+
 
 const currentpath = path.resolve();
 console.log(currentpath);
@@ -44,6 +44,41 @@ let data = {
     },
     attendance: Number,
     classnumber: Number,
+    token:String,
+    changeemail:String,
+    changepasswordkey:String,
+    changepasswordemail:String,
+}
+
+let attendancedata = {
+    name: String,
+    email: String,
+    password: String,
+    MEMBER: String,
+    about: String,
+    role: String,
+    pass: String,
+    taskAssigned1: String,
+    taskAssigned2: String,
+    taskAssigned3: String,
+    deadline: String,
+    involve1: String,
+    involve2: String,
+    Stringenvolve2: String,
+    task1: String,
+    task2: String,
+    facebook: String,
+    instagram: String,
+    photo: {
+        filename: String,
+        imformation: Buffer,
+    },
+    attendance: Number,
+    classnumber: Number,
+    token:String,
+    changeemail:String,
+    changepasswordkey:String,
+    changepasswordemail:String,
 }
 let userchange = {
     name: String,
@@ -71,10 +106,15 @@ let userchange = {
     },
     attendance: Number,
     classnumber: Number,
+    token:String,
+    changeemail:String,
+    changepasswordkey:String,
+    changepasswordemail:String,
 }
 
 const emaili = {
     email: String,
+    cookie:String,
 }
 
 const uri = "mongodb+srv://dipshirshadatta:07032004D.d@cluster0.a6v6uom.mongodb.net/?retryWrites=true&w=majority";
@@ -112,6 +152,10 @@ const Userschema = new mongoose.Schema({
     },
     attendance: Number,
     classnumber: Number,
+    token:String,
+    changeemail:String,
+    changepasswordkey:String,
+    changepasswordemail:String,
 });
 const storage = multer.memoryStorage(); // Store the file in memory as a Buffer
 const upload = multer({ storage });
@@ -170,6 +214,9 @@ app.get("/user/page", async (req, res) => {
 
 app.get("/dash/page", async (req, res) => {
     console.log(data.pass);
+    const { token } = req.cookies;
+    data=await User.findOne({token});
+
     let percentage=(data.attendance/data.classnumber)*100;
     if (data.pass) {
 
@@ -210,7 +257,8 @@ app.post("/dash-form", upload.single('photo'), async (req, res) => {
         filename: originalname,
         imformation: hh,
     };
-
+    const { token } = req.cookies;
+    data=await User.findOne({token});
     let { email } = data;
     let newdata = await User.findOne({ email });
     if (newdata) {
@@ -246,6 +294,7 @@ app.post("/login", async (req, res) => {
     const { email, password, MEMBER } = req.body;
     let user = await User.findOne({ email });   /* finding data through email and store all imformation to user */
     data = await User.findOne({ email });
+
     if (!user) {
         return res.redirect("/register");
     }
@@ -260,9 +309,7 @@ app.post("/login", async (req, res) => {
             data.pass = MEMBER;
         }
 
-
     }
-
 
     const ismatched = await bcrypt.compare(password, user.password);
 
@@ -273,17 +320,24 @@ app.post("/login", async (req, res) => {
 
 
     const token = Jwt.sign({ _id: user._id }, 'imain')  /* check the data */
-
-
     res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) })
+
+    let docxmm = await User.findOne({ email });
+    let updatemmm = {
+     token,
+    }
+
+    await docxmm.updateOne(updatemmm);
+
+
+
     res.redirect("/");
+   
 })
 
 app.post("/register", async (req, res) => {
 
     const { name, email, password } = req.body;
-  
-      
 
 
 
@@ -305,8 +359,14 @@ app.post("/register", async (req, res) => {
 
 
     res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) })
-    res.redirect("/");
+    
+    let docxmmc = await User.findOne({ email });
+    let updatemmmc = {
+     token,
+    }
 
+    await docxmmc.updateOne(updatemmmc);
+    res.redirect("/");
 
 }
 )
@@ -333,16 +393,26 @@ app.get("/dashboard", async (req, res) => {
 
 app.post("/userchanged", async (req, res) => {
 
-    const email = req.body.change;
+    const changeemail = req.body.change;
+    const { token } = req.cookies;
+  let  docxmmcc=await User.findOne({token});
+    
+    let updatemmmcc = {
+     changeemail,
+    }
 
+    await docxmmcc.updateOne(updatemmmcc);
+    let email =changeemail;
     userchange = await User.findOne({ email });
 
     res.render("change-form.ejs", { name: userchange.name });
 
 })
 app.post("/change-form", async (req, res) => {
-    let { email } = userchange;
-    console.log(email);
+    const { token } = req.cookies;
+    let  userchange=await User.findOne({token});
+    let { changeemail } = userchange;
+   
     const { task1, task2,mail } = req.body;
     if(mail){
         const transporter = nodemailer.createTransport({
@@ -354,7 +424,7 @@ app.post("/change-form", async (req, res) => {
           });
           const mailOptions = {
             from: 'dipshirshadatta@gmail.com',
-            to: email, // Replace with the recipient's email address
+            to: changeemail, // Replace with the recipient's email address
             subject: 'Hello from Dipshirsha',
             text: mail,
           };
@@ -368,7 +438,7 @@ app.post("/change-form", async (req, res) => {
           });
           
     }
-
+let email=changeemail;
     let newdata = await User.findOne({ email });
     if (newdata) {
         // Update user's task data
@@ -488,7 +558,9 @@ let email=gmail;
    let lol= await User.findOne({email});
  
 if(lol){
-   changepasswordemail=gmail;
+   
+  
+   let changepasswordemail=gmail;
 
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -503,7 +575,18 @@ function generateString(length) {
 }
 
 let key=generateString(5);
-changepasswordkey=key; 
+let changepasswordkey=key; 
+let newdatamnc = await User.findOne({ email });
+if (newdatamnc) {
+    // Update user's task data
+    const docxmnc = await User.findOne({ email });
+    let updatemnc = {
+        changepasswordemail,
+        changepasswordkey,
+    }
+
+    await docxmnc.updateOne(updatemnc);
+}
 
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -536,15 +619,16 @@ changepasswordkey=key;
     
     })
     app.post("/new/password", async (req, res) => {
+ 
+ const {email,forgot,newpassword}=req.body;
+ let  xvx=await User.findOne({email});
 
- const {forgot,newpassword}=req.body;
- let String1=changepasswordkey;
- console.log(String1);
+let String1=xvx.changepasswordkey;
 console.log(forgot);
  if(forgot==String1)
  {
   
-    let email=changepasswordemail;
+    let email=xvx.changepasswordemail;
     let password=newpassword;
    let hashedpassword= await bcrypt.hash(password, 10);
         // Update user's task data
