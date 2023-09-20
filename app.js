@@ -48,6 +48,7 @@ let data = {
     changeemail:String,
     changepasswordkey:String,
     changepasswordemail:String,
+    pass:Boolean,
 }
 
 let attendancedata = {
@@ -79,6 +80,7 @@ let attendancedata = {
     changeemail:String,
     changepasswordkey:String,
     changepasswordemail:String,
+    pass:Boolean,
 }
 let userchange = {
     name: String,
@@ -110,6 +112,7 @@ let userchange = {
     changeemail:String,
     changepasswordkey:String,
     changepasswordemail:String,
+    pass:Boolean,
 }
 
 const emaili = {
@@ -156,6 +159,7 @@ const Userschema = new mongoose.Schema({
     changeemail:String,
     changepasswordkey:String,
     changepasswordemail:String,
+    pass:Boolean,
 });
 const storage = multer.memoryStorage(); // Store the file in memory as a Buffer
 const upload = multer({ storage });
@@ -195,8 +199,9 @@ app.get("/index", (req, res) => {
 app.get("/logout/page", (req, res) => {
     res.render("logout.ejs");
 })
-app.get("/control/page", (req, res) => {
-
+app.get("/control/page", async(req, res) => {
+    const { token } = req.cookies;
+    data=await User.findOne({token});
     if (data.pass) {
         res.render("control.ejs", { name: data.name });
     }
@@ -213,7 +218,7 @@ app.get("/user/page", async (req, res) => {
 })
 
 app.get("/dash/page", async (req, res) => {
-    console.log(data.pass);
+
     const { token } = req.cookies;
     data=await User.findOne({token});
 
@@ -299,14 +304,15 @@ app.post("/login", async (req, res) => {
         return res.redirect("/register");
     }
 
-
+let pass;
     if (MEMBER) {
         const ismember = user.MEMBER == MEMBER;
         if (!ismember) {
             return res.status(404).send("member not found");
+                pass=false;
         }
         else {
-            data.pass = MEMBER;
+            pass = true;
         }
 
     }
@@ -324,7 +330,7 @@ app.post("/login", async (req, res) => {
 
     let docxmm = await User.findOne({ email });
     let updatemmm = {
-     token,
+     token,pass,
     }
 
     await docxmm.updateOne(updatemmm);
