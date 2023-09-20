@@ -282,18 +282,10 @@ app.post("/login", async (req, res) => {
 app.post("/register", async (req, res) => {
 
     const { name, email, password } = req.body;
-    async function isEmailValid(email) {
-        return emailvalidator.validate(email)
-      }
+  
       
-  if (!email || !password){
-    return res.status(400).send({
-      message: "Email or password missing."
-    })
-  }
 
-  const {valid, reason, validators} = await isEmailValid(email);
-  if (valid){
+
 
 
     let user = await User.findOne({ email });
@@ -314,14 +306,8 @@ app.post("/register", async (req, res) => {
 
     res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) })
     res.redirect("/");
-}
-else{
-    return res.status(400).send({
-        message: "Please provide a valid email address.",
-        reason: validators[reason].reason
-})
 
-}
+
 }
 )
 
