@@ -9,15 +9,23 @@ import multer from 'multer';
 import { count } from 'console';
 import emailvalidator from 'deep-email-validator';
 import  nodemailer from  'nodemailer';
+import { checkPrimeSync } from 'crypto';
+import React from 'react';
+import  ReactDOM from 'react';
+import http from 'http';
+import { Server } from 'socket.io';
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 
-
-const port = 5000
-
+const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 3000;
 
 const currentpath = path.resolve();
 console.log(currentpath);
-const app = express();
+
 
 let data = {
     name: String,
@@ -51,7 +59,7 @@ let data = {
     pass:Boolean,
 }
 
-let attendancedata = {
+let chatdata = {
     name: String,
     email: String,
     password: String,
@@ -81,6 +89,13 @@ let attendancedata = {
     changepasswordkey:String,
     changepasswordemail:String,
     pass:Boolean,
+}
+let chat = {
+    name: String,
+    email: String,
+    massege:String,
+    date:Date,
+    count:Number,
 }
 let userchange = {
     name: String,
@@ -120,17 +135,20 @@ const emaili = {
     cookie:String,
 }
 
-const uri = "mongodb+srv://dipshirshadatta:07032004D.d@cluster0.a6v6uom.mongodb.net/?retryWrites=true&w=majority";
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("Connected to the database");
-    
-    // You can now define your Mongoose models and interact with the database
-  })
-  .catch(err => {
-    console.error("Error connecting to the database:", err);
-  });
-
+mongoose.connect("mongodb://127.0.0.1:27017", {
+    dbName: "backend",
+}).then(() => {
+    console.log("database is connected")
+}).catch(() => {
+    console.log("error came")
+});
+  const massegeSchema = new mongoose.Schema({
+    name:String,
+email:String,
+date:Date,
+massege:String,
+token:String,
+});
 
 const Userschema = new mongoose.Schema({
     name: String,
@@ -164,7 +182,7 @@ const Userschema = new mongoose.Schema({
 const storage = multer.memoryStorage(); // Store the file in memory as a Buffer
 const upload = multer({ storage });
 const User = mongoose.model("user", Userschema);
-
+const Massege = mongoose.model("massege", massegeSchema);
 
 app.set("view engine", "ejs");
 
@@ -317,7 +335,7 @@ let pass;
 
     }
     else{
-        pass=false;
+        pass=false; 
     }
 
     const ismatched = await bcrypt.compare(password, user.password);
@@ -391,9 +409,7 @@ app.get("/login", (req, res) => {
     res.render("login.ejs");
 })
 
-app.listen(process.env.PORT || port, () => {
-    console.log("server is working");
-})
+
 app.get("/dashboard", async (req, res) => {
     res.render("dashboard.ejs");
 
@@ -657,8 +673,32 @@ console.log(forgot);
 
   
     })
-    
 
-
-
-
+ app.get('/chat', async(req, res) => {
+    const { token } = req.cookies;
+     chatdata =await User.findOne({token});
+     chat =await Massege.find();
+     chat.count= await Massege.count();
+     res.render("chat.ejs",{chatdata:chatdata.name,chat:chat,countdata:chat.count})
+  });
+io.on("connection", function (socket)  {
+    console.log("A user connected");
+    socket.on('chat message',async( msg,name) => 
+    {
+     
+        let massege=msg;
+        let masseger=new Massege({massege,name});
+        masseger.save();
+        io.emit('chat message', msg,name);
+     
+      });
+    socket.on('disconnect', () => {
+        console.log('A user disconnected');
+      });
+    });
+app.listen(process.env.PORT || port, () => {
+    console.log("server is working");
+})
+server.listen(port, host, () => {
+    console.log("Socket.IO server running at http://${host}:${port}/");
+  });
