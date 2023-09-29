@@ -135,13 +135,16 @@ const emaili = {
     cookie:String,
 }
 
-mongoose.connect("mongodb://127.0.0.1:27017", {
-    dbName: "backend",
-}).then(() => {
-    console.log("database is connected")
-}).catch(() => {
-    console.log("error came")
-});
+const uri = "mongodb+srv://dipshirshadatta:07032004D.d@cluster0.a6v6uom.mongodb.net/?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("Connected to the database");
+    
+    // You can now define your Mongoose models and interact with the database
+  })
+  .catch(err => {
+    console.error("Error connecting to the database:", err);
+  });
   const massegeSchema = new mongoose.Schema({
     name:String,
 email:String,
