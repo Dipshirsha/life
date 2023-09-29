@@ -9,7 +9,7 @@ import multer from 'multer';
 import { count } from 'console';
 import emailvalidator from 'deep-email-validator';
 import  nodemailer from  'nodemailer';
-import { checkPrimeSync } from 'crypto';
+
 import React from 'react';
 import  ReactDOM from 'react';
 import http from 'http';
