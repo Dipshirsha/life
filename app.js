@@ -20,7 +20,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 
-const host = process.env.HOST || 'localhost';
+const host = process.env.HOST || 3000;
 const port = process.env.PORT || 5000;
 
 const currentpath = path.resolve();
