@@ -349,19 +349,14 @@ let pass;
 
 
 
-    const token = Jwt.sign({ _id: user._id }, 'imain')  /* check the data */
-    res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) })
-
-    let docxmm = await User.findOne({ email });
-    let updatemmm = {
-     token,pass,
-    }
-
-    await docxmm.updateOne(updatemmm);
+    const token = Jwt.sign({ _id: user._id }, 'imain') ; /* check the data */
+    res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) });
 
 
 
-    res.redirect("/");
+
+
+    res.redirect("/login");
    
 })
 
