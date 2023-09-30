@@ -20,7 +20,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 
-/* const host = process.env.HOST || 3000; */
+const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 5000;
 
 const currentpath = path.resolve();
@@ -698,6 +698,6 @@ io.on("connection", function (socket)  {
 app.listen(process.env.PORT || port, () => {
     console.log("server is working");
 })
-server.listen(port, '0.0.0.0', () => {
+server.listen(port, host, () => {
     console.log("Socket.IO server running at http://${host}:${port}/");
   });
