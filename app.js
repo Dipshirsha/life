@@ -357,7 +357,7 @@ let pass;
 
 
 
-    res.redirect("/login");
+    res.redirect("/");
    
 })
 
