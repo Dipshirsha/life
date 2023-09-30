@@ -145,6 +145,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => {
     console.error("Error connecting to the database:", err);
   });
+mongoose.set('strictQuery', true);
   const massegeSchema = new mongoose.Schema({
     name:String,
 email:String,
