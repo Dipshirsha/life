@@ -698,6 +698,6 @@ io.on("connection", function (socket)  {
 app.listen(process.env.PORT || port, () => {
     console.log("server is working");
 })
-server.listen(port, host, () => {
+server.listen(port, '127.0.0.1', () => {
     console.log("Socket.IO server running at http://${host}:${port}/");
   });
