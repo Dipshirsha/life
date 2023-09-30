@@ -134,7 +134,6 @@ const emaili = {
     email: String,
     cookie:String,
 }
-
 const uri = "mongodb+srv://dipshirshadatta:07032004D.d@cluster0.a6v6uom.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
@@ -350,10 +349,15 @@ let pass;
 
 
 
-    const token = Jwt.sign({ _id: user._id }, 'imain') ; /* check the data */
-    res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) });
+    const token = Jwt.sign({ _id: user._id }, 'imain')  /* check the data */
+    res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) })
 
+    let docxmm = await User.findOne({ email });
+    let updatemmm = {
+     token,pass,
+    }
 
+    await docxmm.updateOne(updatemmm);
 
 
 
@@ -385,8 +389,7 @@ app.post("/register", async (req, res) => {
 
 
     res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) })
-
-
+    
     let docxmmc = await User.findOne({ email });
     let updatemmmc = {
      token,
