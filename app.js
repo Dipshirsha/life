@@ -703,7 +703,7 @@ app.listen(process.env.PORT || port, () => {
     console.log("server is working");
 })
 const socketIoPort = process.env.SOCKET_IO_PORT || 10001;
-server.listen(socketIoPort, '127.0.0.1', () => {
+server.listen(socketIoPort, 'localhost', () => {
   console.log(`Socket.IO server running at http://127.0.0.1:${socketIoPort}/`);
 });
 
