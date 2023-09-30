@@ -20,8 +20,8 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 
-const host = process.env.HOST || '127.0.0.1';
-const port = process.env.PORT || 10000;
+
+const port = process.env.PORT || 3000;
 
 const currentpath = path.resolve();
 console.log(currentpath);
@@ -139,13 +139,13 @@ const uri = "mongodb+srv://dipshirshadatta:07032004D.d@cluster0.a6v6uom.mongodb.
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("Connected to the database");
-    
+     mongoose.set('strictQuery', false);
     // You can now define your Mongoose models and interact with the database
   })
   .catch(err => {
     console.error("Error connecting to the database:", err);
   });
-mongoose.set('strictQuery', true);
+
   const massegeSchema = new mongoose.Schema({
     name:String,
 email:String,
@@ -385,7 +385,8 @@ app.post("/register", async (req, res) => {
 
 
     res.cookie('token', token, user._id, { httpOnly: true, expires: new Date(Date.now() + 60 * 1000) })
-    
+
+
     let docxmmc = await User.findOne({ email });
     let updatemmmc = {
      token,
@@ -698,6 +699,8 @@ io.on("connection", function (socket)  {
 app.listen(process.env.PORT || port, () => {
     console.log("server is working");
 })
-server.listen(port, '127.0.0.1', () => {
-    console.log("Socket.IO server running at http://${host}:${port}/");
-  });
+const socketIoPort = process.env.SOCKET_IO_PORT || 10001;
+server.listen(socketIoPort, '127.0.0.1', () => {
+  console.log(`Socket.IO server running at http://127.0.0.1:${socketIoPort}/`);
+});
+
