@@ -2,527 +2,563 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="./public/style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
     @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-@media all and (min-width: 992px) {
-  .navbar .nav-item .dropdown-menu {
-    display: block;
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s;
-    margin-top: 0;
-  }
-
-  .navbar .nav-item:hover .nav-link {
-    color: #fff;
-  }
-
-  .navbar .dropdown-menu.fade-down {
-    top: 80%;
-    transform: rotateX(-75deg);
-    transform-origin: 0% 0%;
-  }
-
-  .navbar .dropdown-menu.fade-up {
-    top: 180%;
-  }
-
-  .navbar .nav-item:hover .dropdown-menu {
-    transition: .3s;
-    opacity: 1;
-    visibility: visible;
-    top: 100%;
-    transform: rotateX(0deg);
-  }
-
-}
-
-.navbar {
-  background: #00000072
-}
-
-.nav-item::after {
-  content: '';
-  display: block;
-  width: 0px;
-  height: 2px;
-  background: #fec400;
-  transition: 0.4s
-}
-
-.nav-item:hover::after {
-  width: 100%
-}
-
-.navbar-dark .navbar-nav .active>.nav-link,
-.navbar-dark .navbar-nav .nav-link.active,
-.navbar-dark .navbar-nav .nav-link.show,
-.navbar-dark .navbar-nav .show>.nav-link,
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #fec400
-}
-
-.nav-link {
-
-  transition: 0.2s
-}
-
-.carousel-item {
-
-  width: 100%;
-}
-
-
-.navbar {
-  background-color: hsla(0, 0%, 0%, 0.352);
-
-}
-
-.quiz {
-  color: aliceblue;
-  border: 1px solid rgb(29, 29, 55);
-  background-color: rgb(26, 26, 56);
-  padding: 10px 10px 10px 10px;
-  cursor: pointer;
-
-}
-
-
-
-
-
-.image {
-  width: 100%;
-  height: 90vh;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  backdrop-filter: blur(3px);
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  transition: .5s ease;
-}
+    @media all and (min-width: 992px) {
+      .navbar .nav-item .dropdown-menu {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+        margin-top: 0;
+      }
+
+      .navbar .nav-item:hover .nav-link {
+        color: #fff;
+      }
+
+      .navbar .dropdown-menu.fade-down {
+        top: 80%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+      }
+
+      .navbar .dropdown-menu.fade-up {
+        top: 180%;
+      }
+
+      .navbar .nav-item:hover .dropdown-menu {
+        transition: .3s;
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+        transform: rotateX(0deg);
+      }
+
+    }
+
+    .navbar {
+      background: #00000072
+    }
+
+    .nav-item::after {
+      content: '';
+      display: block;
+      width: 0px;
+      height: 2px;
+      background: #fec400;
+      transition: 0.4s
+    }
+
+    .nav-item:hover::after {
+      width: 100%
+    }
+
+    .navbar-dark .navbar-nav .active>.nav-link,
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link.show,
+    .navbar-dark .navbar-nav .show>.nav-link,
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #fec400
+    }
+
+    .nav-link {
 
-.carousel-item:hover .overlay {
-  height: 100%;
-}
+      transition: 0.2s
+    }
+
+    .carousel-item {
+
+      width: 100%;
+    }
 
-.text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-  border: 1vmax solid rgb(12, 12, 51);
-  background-color: rgb(10, 10, 37);
-  border-radius: 100px;
+
+    .navbar {
+      background-color: hsla(0, 0%, 0%, 0.352);
 
-}
+    }
 
-#carouselExampleDark {
-  background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8324.png");
+    .quiz {
+      color: aliceblue;
+      border: 1px solid rgb(29, 29, 55);
+      background-color: rgb(26, 26, 56);
+      padding: 10px 10px 10px 10px;
+      cursor: pointer;
+
+    }
+
 
-}
+
+
+
+    .image {
+      width: 100%;
+      height: 90vh;
+    }
 
-@media screen and (max-width: 650px) {
-  .image {
-    width: 100%;
-    height: 50vh;
-  }
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      backdrop-filter: blur(3px);
+      overflow: hidden;
+      width: 100%;
+      height: 0;
+      transition: .5s ease;
+    }
 
-}
+    .carousel-item:hover .overlay {
+      height: 100%;
+    }
 
-@media screen and (max-width: 650px) {
+    .text {
+      color: white;
+      font-size: 1em;
+      position: absolute;
+      top: 50%;
+      left: 20%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
 
-  .about-us {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
 
-  }
 
-  .container .col-6 {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+      background-color: rgba(10, 10, 37, 0.511);
+      border-radius: 1px solid black;
+      padding: 1em;
+      border-radius: 3px;
+    }
 
-  }
-
-  .about {
-    text-align: center;
-  }
-
-  .image-container {
-    width: auto !important;
-    max-width: none !important;
-
-  }
-
-  .image-container img {
-    width: 100%
-  }
-
-  .gallery {
-    flex-direction: column;
-  }
-
-  .events {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .event-container {
-    width: 100%;
-  }
-
-  .news {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-  }
-
-  .news-container {
-    width: 80%;
-  }
-
-}
-
-.about {
-
-  margin: 2.5em;
-
-}
-
-.about-us {
-  background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
-  background-size: cover;
-  -webkit-animation: slidein 50s;
-  animation: slidein 59s;
-
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-  display: flex;
-  padding-top: 40px;
-  padding-bottom: 40px;
-
-}
-
-@keyframes slidein {
-  from {
-    background-position: top;
-    background-size: 3000px;
-  }
-
-  to {
-    background-position: -100px 0px;
-    background-size: 2750px;
-  }
-
-}
-
-
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(75, 75, 250, 0.3);
-  border-radius: 3px;
-}
-
-.center h1 {
-  text-align: center;
-  color: white;
-  font-family: 'Source Code Pro', monospace;
-  text-transform: uppercase;
-}
-
-.container .col-6 {
-  backdrop-filter: blur(40px);
-  border-radius: 100px;
-  margin-bottom: 10px;
-  color: #0c0707;
-  background-color: rgba(0, 0, 0, 0.103);
-}
-
-.container-highlight {
-  display: flex;
-
-  height: 100%;
-  align-items: center;
-  background-color: #000000;
-}
-
-svg {
-  display: block;
-  font: 10.5em 'Montserrat';
-  width: 960px;
-  height: 100px;
-  margin: 0 auto;
-}
-
-.text-copy {
-  fill: none;
-  stroke: white;
-  stroke-dasharray: 6% 29%;
-  stroke-width: 5px;
-  stroke-dashoffset: 0%;
-  animation: stroke-offset 5.5s infinite linear;
-}
-
-.text-copy:nth-child(1) {
-  stroke: #4D163D;
-  animation-delay: -1;
-}
-
-.text-copy:nth-child(2) {
-  stroke: #840037;
-  animation-delay: -2s;
-}
-
-.text-copy:nth-child(3) {
-  stroke: #BD0034;
-  animation-delay: -3s;
-}
-
-.text-copy:nth-child(4) {
-  stroke: #BD0034;
-  animation-delay: -4s;
-}
-
-.text-copy:nth-child(5) {
-  stroke: #FDB731;
-  animation-delay: -5s;
-}
-
-@keyframes stroke-offset {
-  100% {
-    stroke-dashoffset: -35%;
-  }
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-  background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8324.png");
-
-
-}
-
-.image-container {
-
-  width: calc(50% - 20px);
-  max-width: 400px;
-  height: 45vh;
-  perspective: 1000px;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 20px;
-
-}
-
-.image-container img {
-  width: 100%;
-  height: 45vh;
-  object-fit: cover;
-  transition: transform 0.5s;
-}
-
-.image-front,
-.image-back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-  transition: transform 0.5s;
-}
-
-.image-front {
-  transform: rotateY(0deg);
-}
-
-.image-back {
-  transform: rotateY(180deg);
-  background-color: #333;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-}
-
-.image-container:hover .image-front {
-  transform: rotateY(180deg);
-}
-
-.image-container:hover .image-back {
-  transform: rotateY(0deg);
-}
-
-.image-container:hover img {
-  transform: rotateY(180deg);
-}
-
-.event-container {
-  position: relative;
-
-
-}
-
-.event-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #00000093;
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;
-  backdrop-filter: blur(3px);
-  border-radius: 20px;
-}
-
-.event-container:hover .event-overlay {
-  width: 100%;
-}
-
-.event-text {
-  white-space: nowrap;
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-
-}
-
-.event-img {
-  display: block;
-  width: 100%;
-  height: 300px;
-  border-radius: 20px;
-}
-
-.events {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  background-image: url("https://img.freepik.com/free-vector/bokeh-lights-effect-dark-background_52683-33179.jpg?w=1060&t=st=1692638957~exp=1692639557~hmac=c4507abc3631dce769b8b827c837b6471c5523e0a772996ac0fc700e5be27678");
-  padding-top: 3vh;
-}
-
-.animate-charcter {
-  text-transform: uppercase;
-  background-image: linear-gradient(-225deg,
-      #231557 0%,
-      #44107a 29%,
-      #ff1361 67%,
-      #fff800 100%);
-  background-size: auto auto;
-  background-clip: border-news;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  /*   text-fill-color: transparent; */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  font-size: 40px;
-}
-
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-
-  }
-}
-
-.news {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  padding-top: 30px;
-  background-image: linear-gradient(to right, rgb(92, 18, 18), rgb(6, 15, 37), rgb(6, 15, 37), rgb(89, 7, 7));
-  padding-bottom: 10vh;
-}
-
-.news-container {
-  position: relative;
-  border: 5px solid #000000;
-  color: rgb(5, 3, 3);
-  box-shadow: black;
-  text-shadow: wheat;
-  transition: transform .9s;
- 
-}
-.news-container:hover{
-  transform: scale(1.3); 
-  z-index: 3;
-}
-
-.news-context {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-  color: whitesmoke;
-
-}
-
-.news-img {
-  width: 100%;
-  height: 300px;
-}
+    #carouselExampleDark {
+      background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8324.png");
+
+    }
+
+    @media screen and (max-width: 650px) {
+      .image {
+        width: 100%;
+        height: 50vh;
+      }
+
+    }
+
+    @media screen and (max-width: 650px) {
+
+      .about-us {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+      }
+
+      .container .col-6 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+      }
+
+      .about {
+        text-align: center;
+      }
+
+      .image-container {
+        width: auto !important;
+        max-width: none !important;
+
+      }
+
+      .image-container img {
+        width: 100%
+      }
+
+      .gallery {
+        flex-direction: column;
+      }
+
+      .events {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .event-container {
+        width: 100%;
+      }
+
+      .news {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+      }
+
+      .news-container {
+        width: 80%;
+      }
+
+    }
+
+    .about {
+
+      margin: 2.5em;
+
+    }
+
+    .about-us {
+      background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+      background-size: cover;
+      -webkit-animation: slidein 50s;
+      animation: slidein 59s;
+
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+
+      -webkit-animation-direction: alternate;
+      animation-direction: alternate;
+      display: flex;
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+    }
+
+    @keyframes slidein {
+      from {
+        background-position: top;
+        background-size: 3000px;
+      }
+
+      to {
+        background-position: -100px 0px;
+        background-size: 2750px;
+      }
+
+    }
+
+
+
+    .center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(75, 75, 250, 0.3);
+      border-radius: 3px;
+    }
+
+    .center h1 {
+      text-align: center;
+      color: white;
+      font-family: 'Source Code Pro', monospace;
+      text-transform: uppercase;
+    }
+
+    .container .col-6 {
+      backdrop-filter: blur(40px);
+      border-radius: 100px;
+      margin-bottom: 10px;
+      color: #0c0707;
+      background-color: rgba(0, 0, 0, 0.103);
+    }
+
+    .container-highlight {
+      display: flex;
+
+      height: 100%;
+      align-items: center;
+      background-color: #000000;
+    }
+
+    svg {
+      display: block;
+      font: 10.5em 'Montserrat';
+      width: 960px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
+    .text-copy {
+      fill: none;
+      stroke: white;
+      stroke-dasharray: 6% 29%;
+      stroke-width: 5px;
+      stroke-dashoffset: 0%;
+      animation: stroke-offset 5.5s infinite linear;
+    }
+
+    .text-copy:nth-child(1) {
+      stroke: #4D163D;
+      animation-delay: -1;
+    }
+
+    .text-copy:nth-child(2) {
+      stroke: #840037;
+      animation-delay: -2s;
+    }
+
+    .text-copy:nth-child(3) {
+      stroke: #BD0034;
+      animation-delay: -3s;
+    }
+
+    .text-copy:nth-child(4) {
+      stroke: #BD0034;
+      animation-delay: -4s;
+    }
+
+    .text-copy:nth-child(5) {
+      stroke: #FDB731;
+      animation-delay: -5s;
+    }
+
+    @keyframes stroke-offset {
+      100% {
+        stroke-dashoffset: -35%;
+      }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8324.png");
+
+
+    }
+
+    .image-container {
+
+      width: calc(50% - 20px);
+      max-width: 400px;
+      height: 45vh;
+      perspective: 1000px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 45vh;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .image-front,
+    .image-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      transition: transform 0.5s;
+    }
+
+    .image-front {
+      transform: rotateY(0deg);
+    }
+
+    .image-back {
+      transform: rotateY(180deg);
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .image-container:hover .image-front {
+      transform: rotateY(180deg);
+    }
+
+    .image-container:hover .image-back {
+      transform: rotateY(0deg);
+    }
+
+    .image-container:hover img {
+      transform: rotateY(180deg);
+    }
+
+    .event-container {
+      position: relative;
+
+
+    }
+
+    .event-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #00000093;
+      overflow: hidden;
+      width: 0;
+      height: 100%;
+      transition: .5s ease;
+      backdrop-filter: blur(3px);
+      border-radius: 20px;
+    }
+
+    .event-container:hover .event-overlay {
+      width: 100%;
+    }
+
+    .event-text {
+      white-space: nowrap;
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      cursor: pointer;
+
+    }
+
+    .event-img {
+      display: block;
+      width: 100%;
+      height: 300px;
+      border-radius: 20px;
+    }
+
+    .events {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      background-image: url("https://img.freepik.com/free-vector/bokeh-lights-effect-dark-background_52683-33179.jpg?w=1060&t=st=1692638957~exp=1692639557~hmac=c4507abc3631dce769b8b827c837b6471c5523e0a772996ac0fc700e5be27678");
+      padding-top: 3vh;
+    }
+
+    .animate-charcter {
+      text-transform: uppercase;
+      background-image: linear-gradient(-225deg,
+          #231557 0%,
+          #44107a 29%,
+          #ff1361 67%,
+          #fff800 100%);
+      background-size: auto auto;
+      background-clip: border-news;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      /*   text-fill-color: transparent; */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 2s linear infinite;
+      display: inline-block;
+      font-size: 40px;
+    }
+
+    @keyframes textclip {
+      to {
+        background-position: 200% center;
+
+      }
+    }
+
+    .news {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      padding-top: 30px;
+      background-image: linear-gradient(to right, rgb(92, 18, 18), rgb(6, 15, 37), rgb(6, 15, 37), rgb(89, 7, 7));
+      padding-bottom: 10vh;
+    }
+
+    .news-container {
+      position: relative;
+      border: 5px solid #000000;
+      color: rgb(5, 3, 3);
+      box-shadow: black;
+      text-shadow: wheat;
+      transition: transform .9s;
+
+    }
+
+    .news-container:hover {
+      transform: scale(1.3);
+      z-index: 3;
+    }
+
+    .news-context {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+      color: whitesmoke;
+      background-color: #094c76;
+      padding: 2px;
+      border-radius: 3px;
+      cursor: pointer;
+
+    }
+
+    .news-img {
+      width: 100%;
+      height: 300px;
+    }
+
+
+
+
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: "Lato", sans-serif
+    }
+
+    .mySlides {
+      display: none
+    }
+
+    .w3-tag,
+    .fa {
+      cursor: pointer
+    }
+
+    .w3-tag {
+      height: 15px;
+      width: 15px;
+      padding: 0;
+      margin-top: 6px
+    }
 
 
 
@@ -618,319 +654,294 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
-                aria-label="Slide 4"></button>
-           
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+  
+          <img src="https://www.georgetown.edu/wp-content/uploads/2019/09/20180911-Protocol-0424-2000x1333-c-default.jpg"
+            alt="Avatar" class="image">
+          <div class="overlay">
+            <div class="text">Spring Fest
+            </div>
+          </div>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-
-                <img src="https://wallpapers.com/images/featured-full/hd-gaming-wzjn95sxhh29juaz.jpg" alt="Avatar"
-                    class="image">
-                <div class="overlay">
-                    <div class="text">Hello World</div>
-                </div>
+  
+        <div class="carousel-item">
+  
+          <img src="https://pbs.twimg.com/media/F_9BcPiXwAE9kG_?format=jpg&name=large" alt="Avatar" class="image">
+          <div class="overlay">
+            <div class="text">Beautiful campus
             </div>
-
-            <div class="carousel-item">
-
-                <img src="https://steemitimages.com/DQmWpGJE8z5ui4phgGRX28URmoeYKb5UwGwAeZyD23vHMU8/beautiful-fantasy-cricket-bat-and-ball-hd-free-wallpapers.jpg"
-                    alt="Avatar" class="image">
-                <div class="overlay">
-                    <div class="text">Hello World</div>
-
-                </div>
-            </div>
-
-            <div class="carousel-item">
-
-                <img src="https://wallpaperaccess.com/full/313595.jpg" alt="Avatar" class="image">
-                <div class="overlay">
-                    <div class="text">Hello World</div>
-                </div>
-
-            </div>
-            <div class="carousel-item ">
-
-                <img src="https://previews.123rf.com/images/maxborovkov/maxborovkov1808/maxborovkov180800444/111280080-quiz-sign-colorful-brush-design-vector-background.jpg"
-                    alt="Avatar" class="image">
-                <div class="overlay">
-                    <div class="text">Hello World</div>
-                </div>
-
-            </div>
-
-
-
-
+  
+          </div>
         </div>
-
+  
+        <div class="carousel-item">
+  
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Merton_College_library_hall.jpg" alt="Avatar"
+            class="image">
+          <div class="overlay">
+            <div class="text">World class libary</div>
+          </div>
+  
+        </div>
+        <div class="carousel-item ">
+  
+          <img src="https://dlcl.in/assets/uploads/sliders/group.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+            <div class="text">Sports</div>
+          </div>
+  
+        </div>
+  
+  
+  
+  
+      </div>
+  
     </div>
     <div class="about-us">
-        <div class="about">
-            <h2>ABOUT US</h2>
-
+      <div class="about">
+        <h2>ABOUT US</h2>
+  
+      </div>
+  
+      <div class="container text-center" style="padding-top:3vh">
+        <div class="row g-2" style="color:rgb(196, 196, 196)">
+          <div class="col-6">
+            <div class="p-3">The college is renowned for its commitment to academic excellence, offering a diverse range
+              of programs taught by experienced faculty members. It provides students with a challenging and stimulating
+              learning environment that fosters critical thinking, creativity, and innovation.</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3">The college prides itself on providing a vibrant and inclusive campus life. With numerous
+              clubs, sports activities, and cultural events, students have ample opportunities to engage in
+              extracurricular activities, build lasting friendships, and develop essential life skills beyond the
+              classroom.</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3">Equipped with state-of-the-art facilities, the college prioritizes creating an optimal
+              learning environment. Modern classrooms, well-equipped laboratories, a comprehensive library, and advanced
+              technology infrastructure contribute to an enriched educational experience for students.</div>
+          </div>
+          <div class="col-6">
+            <div class="p-3">The college is dedicated to preparing students for successful careers. It offers career
+              counseling, internship opportunities, and connections with industry professionals to ensure that graduates
+              are well-equipped for the job market. Alumni networks play a crucial role, providing ongoing support and
+              mentorship for current students as they transition into their professional lives.</div>
+          </div>
         </div>
-
-        <div class="container text-center" style="padding-top:3vh">
-            <div class="row g-2" style="color:rgb(196, 196, 196)">
-                <div class="col-6">
-                    <div class="p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci placeat quam
-                        delectus esse soluta, sequi consequatur nisi necessitatibus vel porro alias blanditiis ab in
-                        incidunt consectetur? Aperiam quos non nisi!</div>
-                </div>
-                <div class="col-6">
-                    <div class="p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates excepturi
-                        aperiam delectus provident sunt quis perspiciatis. Et similique impedit culpa asperiores
-                        debitis, minima, numquam mollitia sequi, tempore doloribus quae esse?</div>
-                </div>
-                <div class="col-6">
-                    <div class="p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates excepturi
-                        aperiam delectus provident sunt quis perspiciatis. Et similique impedit culpa asperiores
-                        debitis, minima, numquam mollitia sequi, tempore doloribus quae esse?</div>
-                </div>
-                <div class="col-6">
-                    <div class="p-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates excepturi
-                        aperiam delectus provident sunt quis perspiciatis. Et similique impedit culpa asperiores
-                        debitis, minima, numquam mollitia sequi, tempore doloribus quae esse?</div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
     <div class="container-highlight">
-        <svg viewBox="0 0 960 300">
-            <symbol id="s-text">
-                <text text-anchor="middle" x="50%" y="80%">Highlights</text>
-            </symbol>
-
-            <g class="g-ants">
-                <use xlink:href="#s-text" class="text-copy"></use>
-                <use xlink:href="#s-text" class="text-copy"></use>
-                <use xlink:href="#s-text" class="text-copy"></use>
-                <use xlink:href="#s-text" class="text-copy"></use>
-                <use xlink:href="#s-text" class="text-copy"></use>
-            </g>
-        </svg>
+      <svg viewBox="0 0 960 300">
+        <symbol id="s-text">
+          <text text-anchor="middle" x="50%" y="80%">Highlights</text>
+        </symbol>
+  
+        <g class="g-ants">
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+        </g>
+      </svg>
     </div>
     <div class="gallery">
-        <div class="image-container">
-            <div class="image-front">
-                <img src="https://th.bing.com/th/id/OIP.5y4la8-45mv8WTEemeZF0AHaEo?pid=ImgDet&rs=1" alt="Image 1">
-            </div>
-            <div class="image-back">
-                <p class="image-description">Beautiful sunset over the ocean.</p>
-            </div>
+      <div class="image-container">
+        <div class="image-front">
+          <img
+            src="https://hips.hearstapps.com/hbu.h-cdn.co/assets/17/32/hong-kong-university-edit.jpg?crop=1xw:1.0xh;center,top&resize=980:*"
+            alt="Image 1">
         </div>
-
-        <div class="image-container">
-            <div class="image-front">
-                <img src="https://th.bing.com/th/id/R.71615f1e6702ff51468c887c38ac8603?rik=gP6EuTOwFe%2fUpA&riu=http%3a%2f%2fwww.freejupiter.com%2fwp-content%2fuploads%2f2017%2f11%2fCreative-And-Simple-Color-Pencil-Drawings-Ideas-1.jpg&ehk=CBQhfHEDIbchjLQ7LaNCyXI5cAlS2ut%2bcqYFs%2b%2faDnA%3d&risl=&pid=ImgRaw&r=0"
-                    alt="Image 2">
-            </div>
-            <div class="image-back">
-                <p class="image-description">Lush green forest with a flowing river.</p>
-            </div>
+        <div class="image-back">
+          <p class="image-description">Nestled in nature's embrace, our campus captivates with lush greenery, blooming
+            gardens, and modern architecture, creating a serene and inspiring environment where learning and beauty
+            harmoniously coexist. A tranquil oasis for academic pursuits, our campus offers a breathtaking backdrop that
+            enhances the overall student experience.</p>
         </div>
-        <div class="image-container">
-            <div class="image-front">
-                <img src="https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg" alt="Image 3">
-            </div>
-            <div class="image-back">
-                <p class="image-description">City skyline at night with vibrant lights.</p>
-            </div>
+      </div>
+  
+      <div class="image-container">
+        <div class="image-front">
+          <img src="https://m.media-amazon.com/images/I/A1ltf9eLZCL._AC_UF1000,1000_QL80_.jpg" alt="Image 2">
         </div>
-        <div class="image-container">
-            <div class="image-front">
-                <img src="https://th.bing.com/th/id/R.4624050b714ba180ea207e66630a2253?rik=WjWx5E5MhW%2frTg&riu=http%3a%2f%2fwww.wallpaperup.com%2fuploads%2fwallpapers%2f2013%2f08%2f02%2f126813%2f0509e585d96ab621a658531110829dc7.jpg&ehk=pXrK8Q%2f1XMkPc08MXySVid%2bVUpXZ3UvEmKOBwybUAuk%3d&risl=&pid=ImgRaw&r=0"
-                    alt="Image 3">
-            </div>
-            <div class="image-back">
-                <p class="image-description">City skyline at night with vibrant lights.</p>
-            </div>
+        <div class="image-back">
+          <p class="image-description"> Renowned for its excellence in science, engineering, and technology.</p>
         </div>
-        <div class="image-container">
-            <div class="image-front">
-                <img src="https://th.bing.com/th/id/OIP.HNimOP7perMREKGslvInmwHaFj?pid=ImgDet&rs=1" alt="Image 3">
-            </div>
-            <div class="image-back">
-                <p class="image-description">City skyline at night with vibrant lights.</p>
-            </div>
+      </div>
+      <div class="image-container">
+        <div class="image-front">
+          <img src="https://assumptioncollege.edu.in/images/college-resource/labs/3/1.jpg" alt="Image 3">
         </div>
-        <div class="image-container">
-            <div class="image-front">
-                <img src="https://th.bing.com/th/id/R.2d11800772fd05e267bf124d0bc722a6?rik=ywQXGY%2fpGDCx9Q&riu=http%3a%2f%2fblog.searchenglish.com%2fwp-content%2fuploads%2f2017%2f02%2fbadd.jpg&ehk=NOWdXZYf1f4xfHUNsbFxU9E0DTabQJPPjFOHgdhyJuc%3d&risl=&pid=ImgRaw&r=0"
-                    alt="Image 3">
-            </div>
-            <div class="image-back">
-                <p class="image-description">City skyline at night with vibrant lights.</p>
-            </div>
+        <div class="image-back">
+          <p class="image-description">
+            A high-quality library boasts an extensive and diverse collection, seamlessly integrating modern digital
+            resources with comfortable, technologically equipped spaces to empower research, learning, and collaboration.
+          </p>
         </div>
-        <div class="container"
-            style="background-image: url('https://img.freepik.com/free-vector/bokeh-lights-effect-dark-background_52683-33179.jpg?w=1060&t=st=1692638957~exp=1692639557~hmac=c4507abc3631dce769b8b827c837b6471c5523e0a772996ac0fc700e5be27678');">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h3 class="animate-charcter"> Events</h3>
-                </div>
-            </div>
+      </div>
+      <div class="image-container">
+        <div class="image-front">
+          <img
+            src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/campusfeed/2322395_1676010199YhSCp9.jpg"
+            alt="Image 3">
         </div>
-        <!-- Add more image containers as needed -->
+        <div class="image-back">
+          <p class="image-description">An exceptional auditorium, designed for acoustical brilliance and optimal visual
+            experiences, awaits your events with state-of-the-art facilities for a captivating audience experience.</p>
+        </div>
+      </div>
+      <div class="image-container">
+        <div class="image-front">
+          <img src="https://www.dusquad.com/wp-content/uploads/2023/08/How-to-organise-a-college-event-1024x683.jpg"
+            alt="Image 3">
+        </div>
+        <div class="image-back">
+          <p class="image-description">A vibrant fest awaits, where music resonates, colors dance, and joy echoes—join us
+            for a celebration of moments that linger and memories that last.</p>
+        </div>
+      </div>
+      <div class="image-container">
+        <div class="image-front">
+          <img
+            src="https://th.bing.com/th/id/R.2d11800772fd05e267bf124d0bc722a6?rik=ywQXGY%2fpGDCx9Q&riu=http%3a%2f%2fblog.searchenglish.com%2fwp-content%2fuploads%2f2017%2f02%2fbadd.jpg&ehk=NOWdXZYf1f4xfHUNsbFxU9E0DTabQJPPjFOHgdhyJuc%3d&risl=&pid=ImgRaw&r=0"
+            alt="Image 3">
+        </div>
+        <div class="image-back">
+          <p class="image-description">City skyline at night with vibrant lights.</p>
+        </div>
+      </div>
+      <div class="container"
+        style="background-image: url('https://img.freepik.com/free-vector/bokeh-lights-effect-dark-background_52683-33179.jpg?w=1060&t=st=1692638957~exp=1692639557~hmac=c4507abc3631dce769b8b827c837b6471c5523e0a772996ac0fc700e5be27678');">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Events</h3>
+          </div>
+        </div>
+      </div>
+      <!-- Add more image containers as needed -->
     </div>
     <div class="events">
-        <div class="event-container">
-
-            <img src="https://th.bing.com/th/id/OIP.JoC-hhO7R9f1Q7BiFR79MAHaE8?pid=ImgDet&rs=1" alt="Avatar"
-                class="event-img">
-            <div class="event-overlay">
-                <div class="event-text">Hello World</div>
-
-            </div>
+      <div class="event-container">
+  
+        <img src="https://djindelhincr.in/wp-content/uploads/2022/11/2.png" alt="Avatar" class="event-img">
+        <div class="event-overlay">
+          <div class="event-text">Dj Night</div>
+  
         </div>
-        <div class="event-container">
-
-            <img src="https://th.bing.com/th/id/OIP.eiMgqpx_atgNLrqxyei9bwHaE8?pid=ImgDet&rs=1" alt="Avatar"
-                class="event-img">
-            <div class="event-overlay">
-                <div class="event-text">Hello World</div>
-
-            </div>
+      </div>
+      <div class="event-container">
+  
+        <img
+          src="https://media.istockphoto.com/id/499517325/photo/a-man-speaking-at-a-business-conference.jpg?s=612x612&w=0&k=20&c=gWTTDs_Hl6AEGOunoQ2LsjrcTJkknf9G8BGqsywyEtE="
+          alt="Avatar" class="event-img">
+        <div class="event-overlay">
+          <div class="event-text">Workshops</div>
+  
         </div>
-        <div class="event-container">
-
-            <img src="https://th.bing.com/th/id/OIP.HFXCARg0vHIYTy9pe11hQwHaDo?pid=ImgDet&rs=1" alt="Avatar"
-                class="event-img">
-            <div class="event-overlay">
-                <div class="event-text">Hello World</div>
-
-            </div>
+      </div>
+      <div class="event-container">
+  
+        <img src="https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/16/2021/04/sports-events.jpeg"
+          alt="Avatar" class="event-img">
+        <div class="event-overlay">
+          <div class="event-text">Live Sports</div>
+  
         </div>
-
-
+      </div>
+  
+  
     </div>
-    <div class="events">
-        <div class="event-container">
-
-            <img src="https://th.bing.com/th/id/OIP.9scAPewKj7h7y21OlPg38QHaHa?pid=ImgDet&rs=1" alt="Avatar"
-                class="event-img">
-            <div class="event-overlay">
-                <div class="event-text">Hello World</div>
-
-            </div>
-        </div>
-        <div class="event-container">
-
-            <img src="https://i0.wp.com/s1.firstpost.in/wp-content/uploads/2015/02/000_TS-Del6393234.jpg" alt="Avatar"
-                class="event-img">
-            <div class="event-overlay">
-                <div class="event-text">Hello World</div>
-
-            </div>
-        </div>
-        <div class="event-container">
-
-            <img src="https://images.squarespace-cdn.com/content/v1/5bd969d6506fbe4b1a0f5e6b/1613556027347-TNYY9VEX2PRTODIHEP9J/shutterstock_1592944909+-+Badminton+racket+and+shuttlecock+in+motion_1200px+JPEG.jpg?format=1500w" alt="Avatar" class="event-img">
-            <div class="event-overlay">
-                <div class="event-text">Hello World</div>
-
-            </div>
-        </div>
-        <div class="event-container">
-
-            <img src="https://th.bing.com/th/id/OIP.lhQtW9iiBSsT7keNeov-vwHaEK?pid=ImgDet&rs=1" alt="Avatar"
-                class="event-img">
-            <div class="event-overlay">
-                <div class="event-text">Hello World</div>
-
-            </div>
-        </div>
-
-    </div>
-    <div 
-    style="background-image:linear-gradient(to right, rgb(92, 18, 18) , rgb(6, 15, 37), rgb(6, 15, 37),rgb(89, 7, 7));padding-top: 4vh;">
-    <div class="row">
+    <div
+      style="background-image:linear-gradient(to right, rgb(92, 18, 18) , rgb(6, 15, 37), rgb(6, 15, 37),rgb(89, 7, 7));padding-top: 4vh;">
+      <div class="row">
         <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"> News</h3>
+          <h3 class="animate-charcter"> News</h3>
         </div>
+      </div>
     </div>
-</div>
-
+  
     <div class="news">
-        <div class="news-container">
-
-            <img src="https://th.bing.com/th/id/OIP.6tRnX4NQt6mSXI-wF2NbTwHaE8?pid=ImgDet&rs=1" alt="Avatar"
-                class="news-img">
-            <div class="news-context">
-                <div>Hello World</div>
-
-            </div>
+      <div class="news-container">
+  
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/811ab148919315.58a59b0572d3c.jpg" alt="Avatar"
+          class="news-img">
+        <div class="news-context">
+          <div>Read more</div>
+  
         </div>
-        <div class="news-container">
-
-            <img src="https://s3b.cashify.in/gpro/uploads/2021/07/15125850/BGMI-Tournament-Poster.jpg" alt="Avatar"
-                class="news-img">
-            <div class="news-context">
-                <div>Hello World</div>
-
-            </div>
+      </div>
+      <div class="news-container">
+  
+        <img
+          src="https://www.shutterstock.com/shutterstock/photos/2266035451/display_1500/stock-vector-holi-great-design-for-any-purposes-set-of-vector-illustrations-happy-festive-background-festive-2266035451.jpg"
+          alt="Avatar" class="news-img">
+        <div class="news-context">
+          <div>Read more</div>
+  
         </div>
-        <div class="news-container">
-
-            <img src="https://th.bing.com/th/id/R.8e9da54cfc83ccb119054569346ae431?rik=YMqESgQgxsvJqQ&riu=http%3a%2f%2f3.bp.blogspot.com%2f-2W9ooTaOdzI%2fUlUDOnqFnFI%2fAAAAAAAAABk%2fCqK0VZ5mKm4%2fs1600%2fdurga-maa-puja-pic.jpg&ehk=rFs8ggOBJBypzBrP%2fjqgVwuRNJqrP784e9ovy5a9YPI%3d&risl=&pid=ImgRaw&r=0"
-                alt="Avatar" class="news-img">
-            <div class="news-context">
-                <div>Hello World</div>
-
-            </div>
+      </div>
+      <div class="news-container">
+  
+        <img src="https://i.pinimg.com/originals/3b/4d/63/3b4d63b80ac18cbf1d0db54b9b3fda04.jpg" alt="Avatar"
+          class="news-img">
+        <div class="news-context">
+          <div>Read more</div>
+  
         </div>
-        <div class="news-container">
-
-            <img src="https://th.bing.com/th/id/OIP.Qgib1vYixmJc_V0TsLn8rQHaE7?pid=ImgDet&rs=1"
-                alt="Avatar" class="news-img">
-            <div class="news-context">
-                <div>Hello World</div>
-
-            </div>
+      </div>
+      <div class="news-container">
+  
+        <img src="https://th.bing.com/th/id/OIP.m1VORtZe18DRbKrsAWxP_AHaFJ?rs=1&pid=ImgDetMain" alt="Avatar"
+          class="news-img">
+        <div class="news-context">
+          <div>Hello World</div>
+  
         </div>
+      </div>
     </div>
-<hr>
- 
-<footer class="w3-container w3-padding-32 w3-black w3-center">
-    <h4>I think Your day is going happy</h4>
-    <a href="#" class="w3-button w3-red w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-    <div class="w3-xlarge w3-section">
-      <i class="fa fa-facebook-official w3-hover-text-blue"></i>
-      <i class="fa fa-instagram w3-hover-text-pink"></i>
-      <i class="fa fa-snapchat w3-hover-text-yellow"></i>
-      <i class="fa fa-pinterest-w3-hover-text-red"></i>
-      <i class="fa fa-twitter w3-hover-text-indigo"></i>
-      <i class="fa fa-linkedin w3-hover-text-grey"></i>
-    </div>
-   
-    
-    
-
-
+    <hr>
+  
+    <footer class="w3-container w3-padding-32 w3-black w3-center">
+      <h4>I think Your day is going happy</h4>
+      <a href="#" class="w3-button w3-red w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-text-blue"></i>
+        <i class="fa fa-instagram w3-hover-text-pink"></i>
+        <i class="fa fa-snapchat w3-hover-text-yellow"></i>
+        <i class="fa fa-pinterest-w3-hover-text-red"></i>
+        <i class="fa fa-twitter w3-hover-text-indigo"></i>
+        <i class="fa fa-linkedin w3-hover-text-grey"></i>
+      </div>
+  
+  
+    </footer>
+  
+  
     <script src="/public/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-
-
-</body>
-
-</html>
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"></script>
+  
+  
+  </body>
+  
+  </html>
