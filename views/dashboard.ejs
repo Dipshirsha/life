@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Reset some default styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+      color: #fff;
+    }
+
+    /* Dashboard Container */
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    /* Dashboard Sections */
+    .dashboard-section {
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .dashboard-section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Dashboard Title */
+    .dashboard-title {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #ff6f61;
+      text-align: center;
+    }
+
+    /* Task Section */
+    .task {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .task:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .task .status {
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .task .status.pending {
+      background-color: #ffcc00;
+    }
+
+    .task .status.complete {
+      background-color: #00cc66;
+    }
+
+    .task-info {
+      flex: 1;
+    }
+
+    .task-title {
+      font-weight: bold;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .task-description {
+      margin: 5px 0 0;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    .user-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+
+    /* Roadmap Section */
+    .roadmap {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form Link */
+    .form-link {
+      display: block;
+      text-align: center;
+      margin: 20px auto;
+      color: #ff6f61;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .form-link:hover {
+      color: #ff3b2f;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dashboard-section,
+    .roadmap {
+      animation: fadeIn 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    .dashboard-section:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .dashboard-section:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dashboard-section:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .dashboard-section:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .roadmap {
+      animation-delay: 0.5s;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .dashboard-section {
+        min-width: 100%;
+      }
+
+      .roadmap {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    
+  <div class="dashboard">
+    <!-- User Info Section -->
+    <div class="dashboard-section" style="text-align: center;">
+      <h2 class="dashboard-title">
+        <%= locals.name %>
+      </h2>
+      <img style="width: 200px; height: 200px; border-radius: 50%; margin: 10px 0;" src="data:image/<%= locals.photo.contentType %>;base64,<%= locals.photo.imformation %>" />
+      <p style="float: right;">
+        <%= locals.passx %>
+      </p>
+    </div>
+
+    <!-- About Section -->
+    <div class="dashboard-section">
+      <h2 class="dashboard-title">About</h2>
+      <p>
+        <%= locals.about %>
+      </p>
+    </div>
+
+    <!-- Task Assigned Section -->
+    <div class="dashboard-section">
+      <h2 class="dashboard-title">Task Assigned</h2>
+      <div class="task">
+   
+        <div class="task-info">
+          <p class="task-title">
+            <%= locals.taskAssigned1 %>
+          </p>
+          <p class="task-description">Complete feature A</p>
+        </div>
+        <div class="status pending"></div>
+      </div>
+      <div class="task">
+        
+        <div class="task-info">
+          <p class="task-title">
+            <%= locals.taskAssigned2 %>
+          </p>
+          <p class="task-description">Review code for feature B</p>
+        </div>
+        <div class="status complete"></div>
+      </div>
+      <div class="task">
+
+        <div class="task-info">
+          <p class="task-title">
+            <%= locals.taskAssigned3 %>
+          </p>
+          <p class="task-description">Review code for feature B</p>
+        </div>
+        <div class="status complete"></div>
+      </div>
+    </div>
+
+    <!-- Involvement Section -->
+    <div class="dashboard-section">
+      <h2 class="dashboard-title">Involvement</h2>
+      <div class="task">
+  
+        <div class="task-info">
+          <p class="task-title">
+            <%= locals.involve1 %>
+          </p>
+          <p class="task-description">Test application on different devices</p>
+        </div>
+        <div class="status pending"></div>
+      </div>
+      <div class="task">
+       
+        <div class="task-info">
+          <p class="task-title">
+            <%= locals.involve2 %>
+          </p>
+          <p class="task-description">Prepare presentation for stakeholders</p>
+        </div>
+        <div class="status"></div>
+      </div>
+    </div>
+
+    <!-- Roadmap Section -->
+    <div class="roadmap">
+      <h2 class="dashboard-title">Mentoring</h2>
+      <div class="task">
+        <div class="status pending"></div>
+        <p class="task-title">Task 1:</p>
+        <p class="task-description">
+          <%= locals.task1 %>
+        </p>
+      </div>
+      <div class="task">
+        <div class="status complete"></div>
+        <p class="task-title">Task 2:</p>
+        <p class="task-description">
+          <%= locals.task2 %>
+        </p>
+      </div>
+      <div class="task">
+        <div class="status pending"></div>
+        <p class="task-title">Attendance:</p>
+        <p class="task-description">
+          <%= locals.percentage %>%
+        </p>
+      </div>
+      <div class="task">
+        <div class="status"></div>
+        <p class="task-title">Class & Present:</p>
+        <p class="task-description">
+          <%= locals.classnumber %> & <%= locals.attendance %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Link -->
+  <a href="/dash/form/page" class="form-link">Form Page</a>
+
+
+</body>
+
+</html>

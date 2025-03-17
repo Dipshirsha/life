@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Form</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+            animation: gradientAnimation 10s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            margin: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Form Title */
+        .form-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Form Subtitle */
+        .form-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Form Labels */
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Form Inputs */
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 14px;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-input:focus {
+            border-color: #3498db;
+            background-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        /* Submit Button */
+        .form-submit {
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .form-subtitle {
+                font-size: 14px;
+            }
+
+            .form-input {
+                padding: 10px;
+            }
+
+            .form-submit {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Task Form</h1>
+        <p class="form-subtitle">Assign tasks to <strong><%= locals.name %></strong></p>
+        <form action="/change-form" method="post">
+            <!-- Task 1 -->
+            <label class="form-label" for="task1">Task 1:</label>
+            <input class="form-input" type="text" id="task1" name="task1" placeholder="Enter Task 1">
+
+            <!-- Task 2 -->
+            <label class="form-label" for="task2">Task 2:</label>
+            <input class="form-input" type="text" id="task2" name="task2" placeholder="Enter Task 2">
+
+            <!-- Mail Text -->
+            <label class="form-label" for="mail">Mail Text:</label>
+            <input class="form-input" type="text" id="mail" name="mail" placeholder="Enter Mail Text">
+
+            <!-- Submit Button -->
+            <button class="form-submit" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

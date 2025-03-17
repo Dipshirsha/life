@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* Reset some default styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    /* Login Container */
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      padding: 30px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #ff6f61;
+      font-size: 2rem;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #ddd;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #ff6f61;
+      outline: none;
+    }
+
+    .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Forgot Password Link */
+    .forgot-password {
+      display: block;
+      margin-top: 10px;
+      color: #ff6f61;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: #ff3b2f;
+    }
+
+    /* Login Button */
+    .btn {
+      width: 100%;
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff3b2f;
+      transform: translateY(-3px);
+    }
+
+    /* Error Message */
+    .error-message {
+      color: #ff3b2f;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Welcome Back!</h2>
+    <form method="post" action="/login">
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+      </div>
+
+      <!-- Password Input -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+      </div>
+
+      <!-- Member Password Input -->
+      <div class="form-group">
+        <label for="member-password">Member Password</label>
+        <input type="password" id="member-password" name="MEMBER" placeholder="Enter member password">
+        <a href="/forgot" class="forgot-password">Forgot password?</a>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-message">
+        <%= locals.massege %>
+      </div>
+
+      <!-- Login Button -->
+      <button class="btn" type="submit">Login</button>
+    </form>
+  </div>
+</body>
+
+</html>

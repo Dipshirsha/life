@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <style>
+    /* Reset some default styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    /* Form Container */
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      padding: 30px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #ff6f61;
+      font-size: 2rem;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #ddd;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: #ff6f61;
+      outline: none;
+    }
+
+    .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Submit Button */
+    .form-submit {
+      width: 100%;
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .form-submit:hover {
+      background-color: #ff3b2f;
+      transform: translateY(-3px);
+    }
+
+    /* Error Message */
+    .error-message {
+      color: #ff3b2f;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    /* Link to Switch Forms */
+    .form-switch {
+      margin-top: 20px;
+      color: #ddd;
+      font-size: 0.9rem;
+    }
+
+    .form-switch a {
+      color: #ff6f61;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .form-switch a:hover {
+      color: #ff3b2f;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Forgot Password Form -->
+  <div class="form-container" id="forgot-form">
+    <h2>Forgot Password</h2>
+    <form action="/forgotkey" method="post">
+      <div class="form-group">
+        <label for="gmail">Email Address</label>
+        <input type="email" name="gmail" id="gmail" placeholder="Enter your email" required>
+      </div>
+      <button class="form-submit" type="submit">Submit</button>
+    </form>
+    <div class="form-switch">
+      <p>Remember your password? <a href="#" onclick="showResetForm()">Reset Password</a></p>
+    </div>
+  </div>
+
+  <!-- Reset Password Form -->
+  <div class="form-container" id="reset-form" style="display: none;">
+    <h2>Reset Password</h2>
+    <form action="/new/password" method="post" id="reset-password-form">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="forgot">Forgot Key</label>
+        <input type="text" name="forgot" id="forgot" placeholder="Enter your forgot key" required>
+      </div>
+      <div class="form-group">
+        <label for="newpassword">New Password</label>
+        <input type="password" name="newpassword" id="newpassword" placeholder="Enter new password" required>
+        <small style="color: #ddd;">Password must be alphanumeric and at least 8 characters long.</small>
+      </div>
+      <div class="error-message" id="reset-error-message"></div>
+      <button class="form-submit" type="submit">Submit</button>
+    </form>
+    <div class="form-switch">
+      <p>Need to request a forgot key? <a href="#" onclick="showForgotForm()">Forgot Password</a></p>
+    </div>
+  </div>
+
+  <!-- JavaScript for Form Switching and Validation -->
+  <script>
+    // Show Forgot Password Form
+    function showForgotForm() {
+      document.getElementById('forgot-form').style.display = 'block';
+      document.getElementById('reset-form').style.display = 'none';
+    }
+
+    // Show Reset Password Form
+    function showResetForm() {
+      document.getElementById('forgot-form').style.display = 'none';
+      document.getElementById('reset-form').style.display = 'block';
+    }
+
+    // Password Validation for Reset Form
+    document.getElementById('reset-password-form').addEventListener('submit', function (e) {
+      const newPassword = document.getElementById('newpassword').value;
+      const errorMessage = document.getElementById('reset-error-message');
+
+      // Reset error message
+      errorMessage.textContent = '';
+
+      // Check if password is alphanumeric and at least 8 characters long
+      const alphanumericRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/;
+      if (!alphanumericRegex.test(newPassword)) {
+        e.preventDefault(); // Prevent form submission
+        errorMessage.textContent = 'Password must be alphanumeric and at least 8 characters long.';
+      }
+    });
+  </script>
+</body>
+
+</html>
